@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.30.0] - 2026-04-03
+
+### Changed
+
+- **Migrate from `${CLAUDE_PLUGIN_ROOT}` to `${CLAUDE_SKILL_DIR}`** in main SKILL.md
+  - Stop hook, session-catchup path, and templates path now use `${CLAUDE_SKILL_DIR}` (added in Claude Code v2.1.69)
+  - 3-level fallback chain for backward compatibility: `CLAUDE_SKILL_DIR` -> `CLAUDE_PLUGIN_ROOT` -> hardcoded path
+  - Default fallback path updated from `.claude/plugins/planning-with-files` to `.claude/skills/planning-with-files` (matches `npx skills add` install location)
+  - Fixes path resolution failures on Windows and Linux (related to #32)
+
+### Restructured
+
+- **IDE-specific configurations moved to dedicated branches**
+  - Master branch now contains only the core skill, templates, scripts, and docs
+  - Each IDE has its own branch: `ide/cursor`, `ide/copilot`, `ide/gemini`, `ide/kiro`, `ide/codex`, `ide/mastra`, `ide/codebuddy`, `ide/factory`, `ide/opencode`, `ide/continue`, `ide/pi-agent`
+  - README updated with branch reference table
+  - Reduces master branch clutter and makes per-IDE maintenance independent
+
+---
+
 ## [2.29.0] - 2026-03-24
 
 ### Added
