@@ -20,7 +20,7 @@ If this skill helps you work smarter, that's all I wanted.
 </details>
 
 <details>
-<summary><strong>🌍 People are building real things with this → click to see</strong></summary>
+<summary><strong>🌍 What the community shipped</strong></summary>
 
 ### Forks & Extensions
 
