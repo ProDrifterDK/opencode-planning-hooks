@@ -1,0 +1,55 @@
+# Task 5 Integration Test Results
+
+## Test: Full integration test
+
+### UserPromptSubmit Hook Test
+- Command: Extracted from SKILL.md frontmatter
+- Input: .sisyphus/plans/test-hooks.md (2 incomplete, 1 complete)
+- Output: "[planning-hooks] Active plan: test-hooks.md | Tasks: 3/5"
+- Result: PASS
+
+### PreToolUse Hook Test
+- Command: Extracted from SKILL.md frontmatter
+- Input: .sisyphus/plans/test-hooks.md
+- Output: First 5 lines of plan (title + TODOs section)
+- Result: PASS
+
+### PostToolUse Hook Test
+- Command: Extracted from SKILL.md frontmatter
+- Input: .sisyphus/plans/test-hooks.md
+- Output: "[planning-hooks] Plan test-hooks.md active — update task status if work completed."
+- Result: PASS
+
+### check-complete.sh Test (Incomplete)
+- Input: test-hooks.md with 2 incomplete tasks
+- Exit code: 1
+- Output: "[planning-hooks] INCOMPLETE: 2 tasks remaining in test-hooks.md"
+- Result: PASS
+
+### No-Plan Test (all hooks)
+- Location: /tmp (no .sisyphus/plans/)
+- UserPromptSubmit: Zero output, exit 0
+- PreToolUse: Zero output, exit 0
+- PostToolUse: Zero output, exit 0
+- check-complete.sh: Exit 0
+- Result: PASS
+
+### check-complete.sh Test (All Complete)
+- Input: All tasks marked [x]
+- Exit code: 0
+- Output: Silent
+- Result: PASS
+
+### Git Push
+- Command: git push -u origin master
+- Result: SUCCESS
+
+### GitHub Verification
+- gh repo view: Shows repo with files
+- Files: .gitignore, .opencode, LICENSE, README.md, scripts
+- Commits: 32f2d20, f770ee1, ba86703 + upstream commits
+- Result: PASS
+
+---
+Date: 2026-04-21
+Status: ALL TESTS PASSED
